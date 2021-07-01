@@ -1,0 +1,11 @@
+.form-control {
+    background-color: transparent;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: black;
+    border-radius: 0px;
+}
+
+#brand {
+    padding: 0px 10px;
+}
