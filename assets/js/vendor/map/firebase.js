@@ -11,4 +11,4 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-var db = firebase.database();
+var fb = firebase.database();

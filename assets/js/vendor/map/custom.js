@@ -11,8 +11,3 @@ var map = new mapboxgl.Map({
 map.on('idle', function () {
     map.resize()
 })
-
-map.setLayoutProperty('country-label', 'text-field', [
-    'get',
-    'name_id'
-]);

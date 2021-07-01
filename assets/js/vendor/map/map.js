@@ -1,14 +1,14 @@
-var database = db.ref();
-database.get().then((value) => {
+var db = fb.ref();
+db.get().then((value) => {
     if (value.exists()) {
-        stores = value.val()
+        data = value.val()
         /**
          * Assign a unique id to each store. You'll use this `id`
          * later to associate each point on the map with a listing
          * in the sidebar.
          */
 
-        stores.features.forEach(function (store, i) {
+        data.features.forEach(function (store, i) {
             store.properties.id = i;
         });
 
@@ -22,7 +22,7 @@ database.get().then((value) => {
              */
             map.addSource('places', {
                 'type': 'geojson',
-                'data': stores
+                'data': data
             });
 
             /**
@@ -33,7 +33,6 @@ database.get().then((value) => {
                 mapboxgl: mapboxgl,
                 marker: true,
                 collapsed: true
-                // bbox: [-77.210763, 38.803367, -76.853675, 39.052643]
             });
 
             /**
@@ -42,7 +41,7 @@ database.get().then((value) => {
              * - The search box (MapboxGeocoder) onto the map
              * - The markers onto the map
              */
-            buildLocationList(stores);
+            buildLocationList(data);
             map.addControl(geocoder, 'top-right'),
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             addMarkers();
@@ -50,7 +49,7 @@ database.get().then((value) => {
             /**
              * Listen for when a geocoder result is returned. When one is returned:
              * - Calculate distances
-             * - Sort stores by distance
+             * - Sort data by distance
              * - Rebuild the listings
              * - Adjust the map camera
              * - Open a popup for the closest store
@@ -69,7 +68,7 @@ database.get().then((value) => {
                 var options = {
                     units: 'miles'
                 };
-                stores.features.forEach(function (store) {
+                data.features.forEach(function (store) {
                     Object.defineProperty(store.properties, 'distance', {
                         value: turf.distance(searchResult, store.geometry, options),
                         writable: true,
@@ -79,10 +78,10 @@ database.get().then((value) => {
                 });
 
                 /**
-                 * Sort stores by distance from closest to the `searchResult`
+                 * Sort data by distance from closest to the `searchResult`
                  * to furthest.
                  */
-                stores.features.sort(function (a, b) {
+                data.features.sort(function (a, b) {
                     if (a.properties.distance > b.properties.distance) {
                         return 1;
                     }
@@ -95,20 +94,20 @@ database.get().then((value) => {
                 /**
                  * Rebuild the listings:
                  * Remove the existing listings and build the location
-                 * list again using the newly sorted stores.
+                 * list again using the newly sorted data.
                  */
                 var listings = document.getElementById('listings');
                 while (listings.firstChild) {
                     listings.removeChild(listings.firstChild);
                 }
-                buildLocationList(stores);
+                buildLocationList(data);
 
                 /* Open a popup for the closest store. */
-                createPopUp(stores.features[0]);
+                createPopUp(data.features[0]);
 
                 /** Highlight the listing for the closest store. */
                 var activeListing = document.getElementById(
-                    'listing-' + stores.features[0].properties.id
+                    'listing-' + data.features[0].properties.id
                 );
                 activeListing.classList.add('active');
 
@@ -117,7 +116,7 @@ database.get().then((value) => {
                  * Get a bbox that contains both the geocoder result and
                  * the closest store. Fit the bounds to that bbox.
                  */
-                var bbox = getBbox(stores, 0, searchResult);
+                var bbox = getBbox(data, 0, searchResult);
                 map.fitBounds(bbox, {
                     padding: 100
                 });
@@ -130,13 +129,13 @@ database.get().then((value) => {
          * (2) the closest store
          * construct a bbox that will contain both points
          */
-        function getBbox(sortedStores, storeIdentifier, searchResult) {
+        function getBbox(data, storeIdentifier, searchResult) {
             var lats = [
-                sortedStores.features[storeIdentifier].geometry.coordinates[1],
+                data.features[storeIdentifier].geometry.coordinates[1],
                 searchResult.coordinates[1]
             ];
             var lons = [
-                sortedStores.features[storeIdentifier].geometry.coordinates[0],
+                data.features[storeIdentifier].geometry.coordinates[0],
                 searchResult.coordinates[0]
             ];
             var sortedLons = lons.sort(function (a, b) {
@@ -168,7 +167,7 @@ database.get().then((value) => {
          **/
         function addMarkers() {
             /* For each feature in the GeoJSON object above: */
-            stores.features.forEach(function (marker) {
+            data.features.forEach(function (marker) {
                 /* Create a div element for the marker. */
                 var el = document.createElement('div');
                 /* Assign a unique `id` to the marker. */
