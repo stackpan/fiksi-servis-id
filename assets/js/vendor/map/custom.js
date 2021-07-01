@@ -5,9 +5,14 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v10',
     center: [117.97, -2.49],
     zoom: 1,
-    attributionControl:false,
+    attributionControl: false,
 });
 
-map.on('idle',function(){
+map.on('idle', function () {
     map.resize()
 })
+
+map.setLayoutProperty('country-label', 'text-field', [
+    'get',
+    'name_id'
+]);
