@@ -219,7 +219,8 @@ a:hover {
     border-radius: 0;
     position: relative;
     top: 0;
-    width: 800px;
+    width: 90vw;
+    min-width: none;
     margin-top: 0;
     border: 0;
 }
