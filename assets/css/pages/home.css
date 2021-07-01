@@ -9,3 +9,11 @@
 #brand {
     padding: 0px 10px;
 }
+
+#carouselHome {
+    height: 400px;
+}
+
+.carousel-inner {
+    height: 100%;
+}
