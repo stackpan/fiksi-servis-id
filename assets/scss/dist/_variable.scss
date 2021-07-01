@@ -1,0 +1,99 @@
+// Screen Size
+$screen-200: 200px;
+$screen-375: 375px;
+$screen-425: 425px;
+$screen-575: 575px;
+$screen-767: 767px;
+$screen-768: 768px;
+$screen-769: 769px;
+$screen-991: 991px;
+$screen-992: 992px;
+$screen-1023: 1023px;
+$screen-1024: 1024px;
+$screen-1025: 1025px;
+
+// Color Pallet
+$root-color:
+(
+    '-primary':#FFEF00,
+    '-primary-light:'#FFFF57,
+    '-primary-dark:'#C7BD00,
+    '-secondary':#0011FF,
+    '-secondary-light':#7148FF,
+    '-secondary-dark':#0000CA,
+    '-success':#35FF00,
+    '-warning':#FF9900,
+    '-info':#00ECFF,
+    '-danger':#FF1300,
+    '-dark':#3c4858,
+    '-muted':#8492a6,
+    '-light':#f8f9fc,
+    '-white':#ffffff,
+    '-black':#000000,
+    '-soft-primary': #C7BD00,
+    '-soft-secondary': #0000CA,
+    '-soft-success': rgba(53, 255, 0, 0.2),
+    '-soft-warning': rgba(255, 204, 0, 0.2),
+    '-soft-info': rgba(0, 123, 255, 0.2),
+    '-soft-danger': rgba(228, 63, 82, 0.2),
+    '-soft-dark': rgba(60, 72, 88, 0.2),
+    '-soft-muted': rgba(132, 146, 166, 0.2),
+    '-soft-light': rgba(248, 249, 252, 0.2),
+    '-soft-white': rgba(255, 255, 255, 0.2),
+    '-soft-black': rgba(22, 28, 45, 0.2),
+);
+
+$name-primary:'primary';
+$color-primary: #FFEF00;
+$color-soft-primary: #C7BD00;
+$color-a-primary: #FFFF57;
+
+$name-secondary:'secondary';
+$color-secondary: #0011FF;
+$color-soft-secondary: #0000CA;
+$color-a-secondary: #7148FF;
+
+$name-success:'success';
+$color-success: #35FF00;
+$color-soft-success: rgba(53, 255, 0, 0.2);
+$color-a-success: hsl(108, 100%, 40%);
+
+$name-warning:'warning';
+$color-warning: #FF9900;
+$color-soft-warning: rgba(255, 153, 0, 0.2);
+$color-a-warning: hsl(36, 100%, 40%);
+
+$name-info:'info';
+$color-info: #00ECFF;
+$color-soft-info: rgba(0, 236, 255, 0.2);
+$color-a-info: hsl(184, 100%, 40%);
+
+$name-danger:'danger';
+$color-danger: #FF1300;
+$color-soft-danger: rgba(255, 19, 0, 0.2);
+$color-a-danger: hsl(4, 100%, 45%);
+
+$name-dark:'dark';
+$color-dark: #3c4858;
+$color-soft-dark: rgba(60, 72, 88, 0.2);
+$color-a-dark: #323c49;
+
+$name-muted:'muted';
+$color-muted: #8492a6;
+$color-soft-muted: rgba(132, 146, 166, 0.2);
+$color-a-muted: #75859b;
+
+$name-light:'light';
+$color-light: #f8f9fc;
+$color-soft-light: rgba(248, 249, 252, 0.2);
+$color-a-light: #e6eaf4;
+
+$name-white:'white';
+$color-white: #ffffff;
+$color-soft-white: rgba(255, 255, 255, 0.2);
+$color-a-white: #f2f2f2;
+
+$name-black:'black';
+$color-black: #161c2d;
+$color-soft-black: rgba(22, 28, 44, 0.2);
+$color-a-black: #0f131f;
