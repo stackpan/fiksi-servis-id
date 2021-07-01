@@ -1,0 +1,37 @@
+header {
+    height: 64px;
+}
+
+.form-control {
+    background-color: transparent;
+    border-width: 0px;
+    border-bottom-width: 2px;
+    border-color: black;
+    border-radius: 0px;
+}
+
+#brand {
+    padding: 0px 10px;
+}
+
+#carouselHome {
+    height: 360px;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.card-header {
+    background-color: var(--color-white);
+    border-width: 0px;
+}
+
+.card-img-top {
+    margin: 20px 0px;
+}
+
+.card {
+    border-radius: 0px;
+    border-width: 0px;
+}
