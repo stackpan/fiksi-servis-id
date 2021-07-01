@@ -1,0 +1,13 @@
+{
+  "name": "fiksi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch assets/scss/style.scss:assets/css/style.css",
+    "local": "node assets/js/vendor/node/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
