@@ -16,17 +16,19 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <div id="sidebar" class="sidebar">
         <div class="heading">
             <h1>Company Name</h1>
+            <div id="navbar-menu" class="navbar-menu">
+                <i class='bx bx-menu bx-sm icons-menu'></i>
+            </div>
         </div>
         <div id="listings" class="listings"></div>
     </div>
-    <div id="map" class="map">
-        <div class="navbar-map">
-            <i id="icons-menu" class='bx bx-menu bx-sm icons-menu'></i>
-        </div>
+    <div id="navbar-map" class="navbar-map top-left">
+        <i class='bx bx-menu bx-sm icons-menu'></i>
     </div>
+    <div id="map" class="map"></div>
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>

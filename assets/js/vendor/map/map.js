@@ -42,7 +42,7 @@ db.get().then((value) => {
              * - The markers onto the map
              */
             buildLocationList(data);
-            map.addControl(geocoder, 'top-right'),
+            map.addControl(geocoder, 'top-left'),
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             addMarkers();
 
@@ -236,13 +236,13 @@ db.get().then((value) => {
                 /* Add details to the individual listing. */
                 var details = listing.appendChild(document.createElement('div'));
                 details.innerHTML =
-                    prop.address + ', No. ' +
-                    prop.number + ', ' +
+                    prop.alamatalt + ', No. ' +
+                    prop.no + ', ' +
                     prop.kel + ', Kec. ' +
                     prop.kec + ', Kab. ' +
                     prop.kab + ', ' +
                     prop.prov + ', ' +
-                    prop.country + ' (' +
+                    prop.neg + ' (' +
                     prop.postal + ')';
                 if (prop.distance) {
                     var roundedDistance = Math.round((prop.distance * 1.609347) * 100) / 100;

@@ -8,6 +8,6 @@ var map = new mapboxgl.Map({
     attributionControl: false,
 });
 
-map.on('idle', function () {
-    map.resize()
-})
+// map.on('idle', function () {
+//     map.resize()
+// })
