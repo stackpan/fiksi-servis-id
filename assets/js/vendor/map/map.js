@@ -43,7 +43,7 @@ db.get().then((value) => {
              */
             buildLocationList(data);
             map.addControl(geocoder, 'top-left'),
-            map.addControl(new mapboxgl.NavigationControl, "bottom-right");
+                map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             addMarkers();
 
             /**
@@ -56,6 +56,7 @@ db.get().then((value) => {
              * - Highlight the listing for the closest store.
              */
             geocoder.on('result', function (ev) {
+
                 /* Get the coordinate of the search result */
                 var searchResult = ev.result.geometry;
 
