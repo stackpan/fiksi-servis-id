@@ -25,13 +25,29 @@ header {
 .card-header {
     background-color: var(--color-white);
     border-width: 0px;
-}
-
-.card-img-top {
-    margin: 20px 0px;
+    padding: 8px 0px;
 }
 
 .card {
     border-radius: 0px;
     border-width: 0px;
+    color: black;
+    transition: all .3s;
+}
+
+.card:hover {
+    color: var(--color-secondary);
+}
+
+.icons {
+    font-size: 56px !important;
+    margin: 10px 0px;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.btn-text-primary:hover, .btn-text-primary:focus, .btn-text-primary:active, .btn-text-primary .active, .btn-text-primary .focus, .btn-text-primary:not(:disabled):not(.disabled):active {
+    color: var(--color-secondary) !important;
 }

@@ -220,11 +220,12 @@ section {
     height: 250px;
 }
 
-.btn {
+.button {
     border-radius: 0px;
     box-shadow: none !important;
 }
 
 .divider {
-    height: 3rem;
+    height: 2rem;
 }
+
