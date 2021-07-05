@@ -22,18 +22,34 @@ header {
     height: 100%;
 }
 
-.card-header {
+.main .card-header {
     background-color: var(--color-white);
     border-width: 0px;
 }
 
-.card-img-top {
+.main .card-img {
+    font-size: 64px;
     margin: 20px 0px;
 }
 
-.card {
-    border-radius: 0px;
+.main .card {
+    border-radius: 4px;
     border-width: 0px;
+    background-color: var(--color-grey);
+    color: var(--color-black);
+    transition: all .3s;
+    position: relative;
+    margin: 12px 0px;
+}
+
+.main .card:hover {
+    box-shadow: inset 0px -10px 0px 0px var(--color-primary-light);
+    box-sizing: border-box;
+}
+
+.main .card:active {
+    box-shadow: inset 0px -200px 0px 0px var(--color-primary-light);
+    box-sizing: border-box;
 }
 
 .col {
