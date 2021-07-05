@@ -35,3 +35,7 @@ header {
     border-radius: 0px;
     border-width: 0px;
 }
+
+.col {
+    padding: 0px 10px;
+}
