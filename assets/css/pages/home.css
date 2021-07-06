@@ -1,5 +1,11 @@
-header {
+.navbar {
+    z-index: 200;
+    padding: 0px;
     height: 64px;
+}
+
+.navbar .container {
+    background-color: var(--color-primary);
 }
 
 .form-control {

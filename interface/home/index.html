@@ -16,31 +16,25 @@
 
 <body>
     <!-- Header -->
-    <header class="p-3 bg-primary text-black">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="../../assets/vector/brand.svg" height="32" id="brand">
-                    </svg>
-                </a>
-
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <div class="form-group has-search">
-                        <span class="fa fa-search form-control-feedback">
-                            <img src="../../assets/vector/search_black_24dp.svg">
-                        </span>
-                        <input type="search" class="form-control form-control-dark" placeholder="Search..."
-                            aria-label="Search">
-                    </div>
-                </ul>
-
-                <div class="text-end">
-                    <button type="button" class="btn btn-text-primary me-2">MASUK</button>
-                    <button type="button" class="btn btn-black">DAFTAR</button>
-                </div>
+            <a class="navbar-brand" href="#">
+                <img src="../../assets/vector/brand.svg" width="72">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <input class="form-control mb-2 mb-lg-0" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex justify-content-center mb-2 mb-lg-0">
+                    <button class="btn btn-text-primary" type="submit">MASUK</button>
+                    <button class="btn btn-black" type="submit">DAFTAR</button>
+                </form>
             </div>
         </div>
-    </header>
+    </nav>
     <!-- End of header -->
 
     <!-- Carousel -->
@@ -149,7 +143,7 @@
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
-                  </select>
+                </select>
             </div>
             <div class="mb-3">
                 <select class="form-select" id="inputGroupSelect01">
@@ -157,7 +151,7 @@
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
-                  </select>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
