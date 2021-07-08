@@ -3,6 +3,7 @@ var q = window.location.search, ap = [], o = {"&": " ","=": " ","?": ""},
 
 function splitArray(a, b, i) {for (; i < a.length; i++) {b.push(a.splice(i, 1)[0])}}
 function ArrayToObject(a, b) {var o = {},i = 0; for (; i < a.length; i++) {o[b[i]] = a[i];}return o;}
+function t(v) { return atob(v) } function f(v) { __k = t(v); __t=[__k];return t(__t[0])}
 
 function objectFilter(a, b) {
     if (/\+/.test(b) === true) {
@@ -15,8 +16,6 @@ function objectFilter(a, b) {
         if (Object.keys(a).length === 0 && a.constructor === Object) {}
         else {return a}}}
 
-function t(v) { return atob(v) }
-function f(v) { __k = t(v); __t=[__k];return t(__t[0])}
 
 splitArray(av, ap, 1); ao = ArrayToObject(ap, av); aoq = ao.q; if (aoq === undefined) {}
 if (aoq === '') {window.location.href =  window.location.href.split("?")[0]}
