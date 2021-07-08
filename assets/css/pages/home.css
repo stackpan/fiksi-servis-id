@@ -20,11 +20,23 @@
     padding: 0px 10px;
 }
 
-#carouselHome {
-    height: 360px;
+.carousel {
+    height: 320px;
 }
 
-.carousel-inner {
+.carousel .carousel-inner {
+    height: 100%;
+}
+
+.carousel .carousel-item {
+    height: 320px;
+}
+
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
     height: 100%;
 }
 
