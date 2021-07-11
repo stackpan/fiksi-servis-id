@@ -73,3 +73,8 @@
 .col {
     padding: 0px 10px;
 }
+
+.fks-btn-register {
+    background-color: black !important;
+    color: var(--color-white) !important;
+}
