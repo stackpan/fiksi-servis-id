@@ -223,6 +223,11 @@ section {
 .btn {
     border-radius: 0px;
     box-shadow: none !important;
+    font-weight: bold;
+}
+
+.btn-black {
+    color: var(--color-white);
 }
 
 .separator {
