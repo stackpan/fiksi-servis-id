@@ -45,6 +45,30 @@ html {
     margin: auto 0;
 }
 
+.card-container {
+    margin-top: 10rem;
+}
+
+.card-header {
+    border-radius: 0px;
+    border-width: 0px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.card-container h4 {
+    text-decoration: underline solid;
+}
+
+.card {
+    border-radius: 0px !important;
+    padding: 20px 0;
+}
+
+.card .card-body {
+    text-align: center;
+}
+
 /* Tablet */
 @media (max-width: 768px) {
     .diagonal-box {
@@ -89,5 +113,9 @@ html {
 
     h6 {
         font-size: 16px;
+    }
+
+    .card {
+        margin-bottom: 2rem;
     }
 }
