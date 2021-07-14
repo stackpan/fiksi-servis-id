@@ -230,6 +230,14 @@ section {
     color: var(--color-white);
 }
 
+.btn-secondary {
+    color: var(--color-white);
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    color: var(--color-white);
+}
+
 .separator {
     height: 3rem;
 }

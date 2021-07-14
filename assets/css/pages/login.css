@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+}
+
+.form-container {
+    position: relative;
+    height: 100%;
+    background-color: var(--color-white);
+}
+
+.form-container .login-form-group {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28rem;
+    height: auto;
+    border-top: 6px solid var(--color-primary);
+    background-color: var(--color-white);
+}
+
+.login-form-group .form-control {
+    border-width: 0px;
+    border-bottom: 2px solid var(--color-black);
+    border-radius: 0px;
+    background-color: transparent;
+}
