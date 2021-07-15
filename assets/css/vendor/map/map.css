@@ -12,16 +12,49 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+.menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -5px 20px;
+    z-index: 1;
+}
+
+.nav-menu-bar, .nav-side-bar {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.nav-side-bar {
+    position: fixed;
+}
+
+.sidebar .heading h1 {
+    text-align: center;
+}
+
+.br{
+    margin-left: 10px;
+    height: 50%;
+    margin-top: 10px;
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
 .sidebar {
     position: absolute;
     width: 33.3333%;
     height: 100%;
-    z-index: -1;
     top: 0;
-    left: -100vw;
+    z-index: 4;
+    left: -35%;
     overflow: hidden;
     background-color: #fff;
     border-right: 1px solid rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
 }
 
 @media (max-width: 991px) {
@@ -32,8 +65,8 @@ body {
 }
 
 .show {
-    z-index: 4 !important;
-    left: 0;
+    left: 0%;
+    transition: all 0.5s;
 }
 
 .pad2 {
@@ -54,9 +87,10 @@ body {
 h1 {
     font-size: 22px;
     margin: 0;
+    padding: 0;
     font-weight: 400;
     line-height: 20px;
-    padding: 20px 2px;
+    padding: 10px 0 0 0;
 }
 
 a {
@@ -74,9 +108,8 @@ a:hover {
 .heading {
     background: #fff;
     border-bottom: 1px solid #eee;
-    min-height: 60px;
+    height: 50px;
     line-height: 60px;
-    padding: 0 10px;
     background-color: #00853e;
     color: #fff;
 }
@@ -152,30 +185,6 @@ a:hover {
     height: 0;
     clear: both;
     visibility: hidden;
-}
-
-.navbar-map {
-    cursor: pointer;
-    z-index: 2;
-    padding: 3px;
-    top: 0;
-    right: 0;
-    margin: 10px 10px 0 0;
-    display: flex;
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-}
-
-.navbar-menu {
-    position: absolute;
-    top: 0.5rem;
-    right: 2rem;
-}
-
-@media (min-width: 992px) {
-    .navbar-menu {
-        display: none;
-    }
 }
 
 /* Marker tweaks */
@@ -258,6 +267,8 @@ a:hover {
 }
 
 .mapboxgl-ctrl-geocoder {
+    margin: 10px 0 0 10px;
+    box-shadow: none !important;
     transition: none !important;
 }
 
@@ -268,6 +279,7 @@ a:hover {
 
 .mapboxgl-ctrl-geocoder--icon {
     fill: #1f3044;
+    font-size: 2.25rem !important;
     margin-top: -3px !important;
 }
 
@@ -300,5 +312,7 @@ a:hover {
     }
     .mapboxgl-ctrl-geocoder {
         font-size: 15 !important;
-    }
+        margin: 10px 0 0 10px;
+        box-shadow: none !important;
+}
 }

@@ -41,8 +41,9 @@ db_collection_stores_doc_store.get().then((doc) => {
             var geocoder = new MapboxGeocoder({
                 accessToken: mapboxgl.accessToken,
                 mapboxgl: mapboxgl,
+                placeholder: 'Search your location...',
                 marker: true,
-                collapsed: true
+                collapsed: false
             });
 
             /**
@@ -52,8 +53,8 @@ db_collection_stores_doc_store.get().then((doc) => {
              * - The markers onto the map
              */
             buildLocationList(data);
-            map.addControl(geocoder, 'top-left'),
-                map.addControl(new mapboxgl.NavigationControl, "bottom-right");
+            document.getElementById('nav-menu-search').appendChild(geocoder.onAdd(map));
+            map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             addMarkers();
 
             /**
