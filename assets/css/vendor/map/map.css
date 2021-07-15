@@ -326,8 +326,8 @@ a:hover {
     }
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
     .mapboxgl-ctrl-group {
         display: none;
     }
-}
+} */
