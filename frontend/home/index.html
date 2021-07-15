@@ -21,159 +21,113 @@
             <a class="navbar-brand" href="#">
                 <img src="../../assets/vector/brand.svg" width="72">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <input class="form-control mb-2 mb-lg-0" type="search" placeholder="Search" aria-label="Search">
-                <form class="d-flex justify-content-center mb-2 mb-lg-0">
-                    <button class="btn fks-btn-text-primary" type="submit">MASUK</button>
-                    <button class="btn btn-black fks-btn-register" type="submit">DAFTAR</button>
-                </form>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Peta</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <i class='bx bxs-user-circle'></i>
+                </span>
             </div>
         </div>
     </nav>
     <!-- End of header -->
 
-    <!-- Carousel -->
-    <div id="carouselExampleIndicators" class="carousel slide home-carousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item home-carousel-item active">
-            <img src="../../assets/images/carousel-1.jpg" class="d-block w-100">
-          </div>
-          <div class="carousel-item home-carousel-item">
-            <img src="../../assets/images/carousel-1.jpg" class="d-block w-100">
-          </div>
-          <div class="carousel-item home-carousel-item">
-            <img src="../../assets/images/carousel-1.jpg" class="d-block w-100">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    <!-- End of Carousel -->
+    <div class="content">
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="card req-list">
+                        <div class="card-header">
+                            Permintaan Anda
+                        </div>
+                        <!-- List item -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item req-item">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="" class="req-image">
+                                    </div>
+                                    <div class="col-10">
+                                        <h5>Televisi</h5>
+                                        <div class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </div>
 
-    <div class="separator"></div>
+                                    </div>
+                                </div>
+                                <div class="badge-status">
+                                    <span class="badge badge-success mt-2">Selesai</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item req-item">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="" class="req-image">
+                                    </div>
+                                    <div class="col-10">
+                                        <h5>Kulkas</h5>
+                                        <div class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </div>
 
-    <!-- Card -->
-    <div class="container main">
-        <div class="row">
-            <div class="col-6 col-md-4 col-xl">
-                <div class="card text-center">
-                    <i class='bx bxs-widget card-img'></i>
-                    <div class="card-body">
-                        <h5 class="card-title">Option 1</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-xl">
-                <div class="card text-center">
-                    <i class='bx bxs-widget card-img'></i>
-                    <div class="card-body">
-                        <h5 class="card-title">Option 2</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-xl">
-                <div class="card text-center">
-                    <i class='bx bxs-widget card-img'></i>
-                    <div class="card-body">
-                        <h5 class="card-title">Option 3</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-xl">
-                <div class="card text-center">
-                    <i class='bx bxs-widget card-img'></i>
-                    <div class="card-body">
-                        <h5 class="card-title">Option 4</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-xl">
-                <div class="card text-center">
-                    <i class='bx bxs-widget card-img'></i>
-                    <div class="card-body">
-                        <h5 class="card-title">Option 5</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-xl">
-                <div class="card text-center">
-                    <i class='bx bxs-widget card-img'></i>
-                    <div class="card-body">
-                        <h5 class="card-title">Option 6</h5>
+                                    </div>
+                                </div>
+                                <div class="badge-status">
+                                    <span class="badge badge-process mt-2">Dalam Perbaikan</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item req-item">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="" class="req-image">
+                                    </div>
+                                    <div class="col-10">
+                                        <h5>AC</h5>
+                                        <div class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="badge-status">
+                                    <span class="badge badge-waiting mt-2">Menunggu Tukang</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- End of list item -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End of Card -->
-
-    <div class="separator"></div>
-
-    <!-- Form Request -->
-    <form>
-        <div class="container">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Judul</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="mb-3">
-                <select class="form-select" id="inputGroupSelect01">
-                    <option selected>Pilih Kategori Barang</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <select class="form-select" id="inputGroupSelect01">
-                    <option selected>Pilih Jenis Barang</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Alamat</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <input type="file" class="form-control" id="inputGroupFile02">
-            </div>
-            <button type="submit" class="btn btn-primary">Buat Permintaan</button>
-        </div>
-    </form>
-    <!-- End of Request Form -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
