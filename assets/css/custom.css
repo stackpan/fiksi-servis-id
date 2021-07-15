@@ -174,7 +174,7 @@ section {
 
 .form-control:focus {
     box-shadow: none;
-    background-color: var(--color-primary);
+    background-color: transparent;
     border-color: var(--color-black);
 }
 
@@ -225,7 +225,13 @@ section {
     box-shadow: none !important;
 }
 
+<<<<<<< HEAD
 .divider {
     height: 2rem;
 }
 
+=======
+.separator {
+    height: 3rem;
+}
+>>>>>>> d9170ded46054d121158e1979b112124345f71ef

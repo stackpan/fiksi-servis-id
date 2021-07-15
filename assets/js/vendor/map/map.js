@@ -1,7 +1,17 @@
-var db = fb.ref();
-db.get().then((value) => {
-    if (value.exists()) {
-        data = value.val()
+/**
+ * IMPORTANT NOTE
+ * ALL COMMENT WILL DELETE SOON IF
+ * THE APPLICATION FINAL RELEASE
+ */
+
+var db_collection_stores = db.collection("stores"),
+db_collection_stores_doc_store = db_collection_stores.doc("store");
+
+db_collection_stores_doc_store.get().then((doc) => {
+    if (doc.exists) {
+        // console.log("Document data:", doc.data());
+        
+        data = doc.data()
         /**
          * Assign a unique id to each store. You'll use this `id`
          * later to associate each point on the map with a listing
@@ -43,7 +53,7 @@ db.get().then((value) => {
              */
             buildLocationList(data);
             map.addControl(geocoder, 'top-left'),
-            map.addControl(new mapboxgl.NavigationControl, "bottom-right");
+                map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             addMarkers();
 
             /**
@@ -56,6 +66,7 @@ db.get().then((value) => {
              * - Highlight the listing for the closest store.
              */
             geocoder.on('result', function (ev) {
+
                 /* Get the coordinate of the search result */
                 var searchResult = ev.result.geometry;
 
@@ -180,8 +191,8 @@ db.get().then((value) => {
                  * defined above and add it to the map.
                  **/
                 new mapboxgl.Marker(el, {
-                    offset: [0, -45]
-                })
+                        offset: [0, -45]
+                    })
                     .setLngLat(marker.geometry.coordinates)
                     .addTo(map);
 
@@ -298,8 +309,8 @@ db.get().then((value) => {
             if (popUps[0]) popUps[0].remove();
 
             var popup = new mapboxgl.Popup({
-                closeOnClick: false
-            })
+                    closeOnClick: false
+                })
                 .setLngLat(currentFeature.geometry.coordinates)
                 .setHTML(
                     '<h3>' +
@@ -312,8 +323,9 @@ db.get().then((value) => {
                 .addTo(map);
         }
     } else {
-        console.log("No data available");
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
     }
 }).catch((error) => {
-    console.error(error);
+    console.log("Error getting document:", error);
 });

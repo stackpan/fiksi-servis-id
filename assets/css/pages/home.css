@@ -1,5 +1,11 @@
-header {
+.navbar {
+    z-index: 200;
+    padding: 0px;
     height: 64px;
+}
+
+.navbar .container {
+    background-color: var(--color-primary);
 }
 
 .form-control {
@@ -14,23 +20,44 @@ header {
     padding: 0px 10px;
 }
 
-#carouselHome {
-    height: 360px;
+.carousel {
+    height: 320px;
 }
 
-.carousel-inner {
+.carousel .carousel-inner {
     height: 100%;
 }
 
-.card-header {
-    background-color: var(--color-white);
-    border-width: 0px;
-    padding: 8px 0px;
+.carousel .carousel-item {
+    height: 320px;
 }
 
-.card {
-    border-radius: 0px;
+.carousel-item img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.main .card-header {
+    background-color: var(--color-white);
     border-width: 0px;
+<<<<<<< HEAD
+    padding: 8px 0px;
+=======
+}
+
+.main .card-img {
+    font-size: 64px;
+    margin: 20px 0px;
+>>>>>>> d9170ded46054d121158e1979b112124345f71ef
+}
+
+.main .card {
+    border-radius: 4px;
+    border-width: 0px;
+<<<<<<< HEAD
     color: black;
     transition: all .3s;
 }
@@ -50,4 +77,25 @@ header {
 
 .btn-text-primary:hover, .btn-text-primary:focus, .btn-text-primary:active, .btn-text-primary .active, .btn-text-primary .focus, .btn-text-primary:not(:disabled):not(.disabled):active {
     color: var(--color-secondary) !important;
+=======
+    background-color: var(--color-grey);
+    color: var(--color-black);
+    transition: all .3s;
+    position: relative;
+    margin: 12px 0px;
+}
+
+.main .card:hover {
+    box-shadow: inset 0px -10px 0px 0px var(--color-primary-light);
+    box-sizing: border-box;
+}
+
+.main .card:active {
+    box-shadow: inset 0px -200px 0px 0px var(--color-primary-light);
+    box-sizing: border-box;
+}
+
+.col {
+    padding: 0px 10px;
+>>>>>>> d9170ded46054d121158e1979b112124345f71ef
 }
