@@ -97,5 +97,13 @@
 
 .col {
     padding: 0px 10px;
+<<<<<<< HEAD
 >>>>>>> d9170ded46054d121158e1979b112124345f71ef
+=======
+}
+
+.fks-btn-register {
+    background-color: black !important;
+    color: var(--color-white) !important;
+>>>>>>> 9dfa26d8689e3a96ae99b989c3dda082f417e573
 }

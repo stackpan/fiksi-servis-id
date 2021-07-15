@@ -223,6 +223,19 @@ section {
 .button {
     border-radius: 0px;
     box-shadow: none !important;
+    font-weight: bold;
+}
+
+.btn-black {
+    color: var(--color-white);
+}
+
+.btn-secondary {
+    color: var(--color-white);
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    color: var(--color-white);
 }
 
 <<<<<<< HEAD
