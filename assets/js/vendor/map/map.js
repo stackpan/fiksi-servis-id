@@ -58,6 +58,8 @@ db_collection_stores_doc_store.get().then((doc) => {
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), "bottom-right");
             addMarkers();
+            var usrLoc = geocoder.getCurrentLocation();
+            console.log(usrLoc);
 
             /**
              * Listen for when a geocoder result is returned. When one is returned:
