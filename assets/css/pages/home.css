@@ -5,49 +5,23 @@
 }
 
 .navbar .container {
-    background-color: var(--color-primary);
-}
-
-.form-control {
     background-color: transparent;
-    border-width: 0px;
-    border-bottom-width: 2px;
-    border-color: black;
+}
+
+.navbar .bxs-user-circle {
+    color: var(--color-black);
+    font-size: 2.5rem;
+}
+
+.card {
     border-radius: 0px;
-}
-
-#brand {
-    padding: 0px 10px;
-}
-
-.carousel {
-    height: 320px;
-}
-
-.carousel .carousel-inner {
-    height: 100%;
-}
-
-.carousel .carousel-item {
-    height: 320px;
-}
-
-.carousel-item img {
-    position: absolute;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-    height: 100%;
-}
-
-.main .card-header {
-    background-color: var(--color-white);
     border-width: 0px;
 <<<<<<< HEAD
     padding: 8px 0px;
 =======
 }
 
+<<<<<<< HEAD
 .main .card-img {
     font-size: 64px;
     margin: 20px 0px;
@@ -83,18 +57,29 @@
     transition: all .3s;
     position: relative;
     margin: 12px 0px;
+=======
+.card-header {
+    border-radius: 0px !important;
+    border-width: 0px;
+    border-top: 6px solid var(--color-primary-dark);
+    background-color: var(--color-primary);
 }
 
-.main .card:hover {
-    box-shadow: inset 0px -10px 0px 0px var(--color-primary-light);
-    box-sizing: border-box;
+.req-item {
+    height: max-content;
+>>>>>>> 4e91654adf566cd6c6f52ae055a37f36d38d352f
 }
 
-.main .card:active {
-    box-shadow: inset 0px -200px 0px 0px var(--color-primary-light);
-    box-sizing: border-box;
+.req-item .req-image {
+    width: 6.4rem;
+    height: 6.4rem;
 }
 
+.req-item h5 {
+    margin-bottom: 0px;
+}
+
+<<<<<<< HEAD
 .col {
     padding: 0px 10px;
 <<<<<<< HEAD
@@ -106,4 +91,17 @@
     background-color: black !important;
     color: var(--color-white) !important;
 >>>>>>> 9dfa26d8689e3a96ae99b989c3dda082f417e573
+=======
+.req-item .description {
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.req-item .badge-status {
+    float: right
+>>>>>>> 4e91654adf566cd6c6f52ae055a37f36d38d352f
 }
