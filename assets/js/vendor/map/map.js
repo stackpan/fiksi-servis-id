@@ -12,6 +12,7 @@ db_collection_stores_doc_store.get().then((doc) => {
         // console.log("Document data:", doc.data());
         
         data = doc.data()
+        console.log(data);
         /**
          * Assign a unique id to each store. You'll use this `id`
          * later to associate each point on the map with a listing
@@ -55,6 +56,7 @@ db_collection_stores_doc_store.get().then((doc) => {
             buildLocationList(data);
             document.getElementById('nav-menu-search').appendChild(geocoder.onAdd(map));
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
+            map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), "bottom-right");
             addMarkers();
 
             /**
@@ -122,7 +124,6 @@ db_collection_stores_doc_store.get().then((doc) => {
                     'listing-' + data.features[0].properties.id
                 );
                 activeListing.classList.add('active');
-
                 /**
                  * Adjust the map camera:
                  * Get a bbox that contains both the geocoder result and
@@ -245,17 +246,34 @@ db_collection_stores_doc_store.get().then((doc) => {
                 link.id = 'link-' + prop.id;
                 link.innerHTML = prop.name;
 
+                if (prop.alamatalt == undefined) {prop.alamatalt = ''}
+                if (prop.no == undefined) {prop.no = ''}
+                if (prop.kel == undefined) {prop.kel = ''}
+                if (prop.kec == undefined) {prop.kec = ''}
+                if (prop.kab == undefined) {prop.kab = ''}
+                if (prop.prov == undefined) {prop.prov = ''}
+                if (prop.neg == undefined) {prop.neg = ''}
+                if (prop.postal == undefined) {prop.postal = ''}
+
                 /* Add details to the individual listing. */
-                var details = listing.appendChild(document.createElement('div'));
-                details.innerHTML =
-                    prop.alamatalt + ', No. ' +
-                    prop.no + ', ' +
-                    prop.kel + ', Kec. ' +
-                    prop.kec + ', Kab. ' +
-                    prop.kab + ', ' +
-                    prop.prov + ', ' +
-                    prop.neg + ' (' +
-                    prop.postal + ')';
+                var
+                details = listing.appendChild(document.createElement('div')),
+                alamat = (prop.alamatalt=='')? '' : prop.alamatalt + ', ',
+                no = (prop.no=='')? '' : prop.no + ', ',
+                kel = (prop.kel=='')? '' : prop.kel + ', ',
+                kec = (prop.kec=='')? '' : prop.kec + ', ',
+                kab = (prop.kab=='')? '' : prop.kab + ', ',
+                prov = (prop.prov=='')? '' : prop.prov + ', ',
+                neg = (prop.neg=='')? '' : prop.neg,
+                postal = (prop.postal=='')? '' : prop.postal;
+                details.innerHTML = alamat +
+                    'No. ' + no +
+                    kel +
+                    'Kec. ' + kec +
+                    'Kab. ' + kab +
+                    prov + '' +
+                    neg +
+                    ' (' + postal + ')';
                 if (prop.distance) {
                     var roundedDistance = Math.round((prop.distance * 1.609347) * 100) / 100;
                     if (roundedDistance > 1) {
@@ -310,7 +328,8 @@ db_collection_stores_doc_store.get().then((doc) => {
             if (popUps[0]) popUps[0].remove();
 
             var popup = new mapboxgl.Popup({
-                    closeOnClick: false
+                    closeOnClick: true,
+                    closeButton: false
                 })
                 .setLngLat(currentFeature.geometry.coordinates)
                 .setHTML(
