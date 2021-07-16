@@ -1,0 +1,15 @@
+<svg width="38" height="60" xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve">
+ <title>marker</title>
+
+ <g>
+  <title>Layer 1</title>
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="svg_5">
+   <polygon id="svg_2" fill="#EC407A" stroke-miterlimit="22.9256" stroke-width="20" stroke="#EC407A" points="19.060874938964844,37.750640869140625 18.947473526000977,37.530418395996094 18.83405876159668,37.31019592285156 19.060874938964844,37.31019592285156 19.287691116333008,37.31019592285156 19.174274444580078,37.530418395996094 " class="fil1 str0"/>
+   <g id="svg_4">
+    <circle id="svg_1" fill="#EC407A" r="18.45796" cy="19.45796" cx="19.07766" class="fil0"/>
+    <circle id="svg_3" fill="#FEFEFE" r="12.22286" cy="19.45814" cx="19.07766" class="fil2"/>
+   </g>
+  </g>
+ </g>
+</svg>
