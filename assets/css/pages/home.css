@@ -13,8 +13,25 @@
     font-size: 2.5rem;
 }
 
+.content {
+    margin-top: 64px;
+}
+
 .greetings {
     padding: 1rem 0;
+}
+
+.greetings h4 {
+    margin: 0px;
+}
+
+.greetings .greetings-2 {
+    align-items: center;
+}
+
+.greetings-2 h6 {
+    margin: 0;
+    margin-right: auto;
 }
 
 .popularcategory .card {
@@ -33,9 +50,13 @@
     margin: 0px;
 }
 
-.popularcategory .list-category {
+.popular-things .list-category {
     display: flex;
     justify-content: space-between;
+}
+
+.popular-mitra .list-category {
+    display: flex;
 }
 
 .popularcategory .list-category .card {
@@ -50,4 +71,22 @@
 .card .card-img-top {
     width: 9rem;
     height: 9rem;
+}
+
+.footer {
+    height: 100%;
+    padding: 1rem 0;
+}
+
+.footer .container {
+    justify-content: normal;
+    align-items: flex-start;
+}
+
+.footer .navbar-brand {
+    color: var(--color-white);
+}
+
+.footer .nav-item .nav-link {
+    color: var(--color-white);
 }

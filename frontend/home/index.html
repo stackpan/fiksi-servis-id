@@ -16,7 +16,7 @@
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../../assets/vector/brand.svg" height="32" id="brand">
@@ -50,9 +50,14 @@
         <div class="container">
             <div class="greetings">
                 <h4>Selamat datang, pengguna</h4>
-                <h6>Apakah ada yang ingin anda perbaiki?</h6>
+                <div class="greetings-2 d-flex">
+                    <h6>Apakah ada yang ingin anda perbaiki?</h6>
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-primary">BUAT PERMINTAAN</button>
+                    </div>
+                </div>
             </div>
-            <div class="popularcategory">
+            <div class="popularcategory popular-things">
                 <div class="card">
                     <div class="card-header">
                         <h6>Barang yang populer untuk diperbaiki</h6>
@@ -97,8 +102,57 @@
                     </div>
                 </div>
             </div>
+
+            <div class="popularcategory popular-mitra">
+                <div class="card">
+                    <div class="card-header">
+                        <h6>Mitra populer kami</h6>
+                    </div>
+                </div>
+                <div class="list-category">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="" class="card-img-top">
+                            <h6>Mitra name</h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="" class="card-img-top">
+                            <h6>Mitra name</h6>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="" class="card-img-top">
+                            <h6>Mitra name</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <nav class="navbar navbar-expand-lg bg-black footer">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <h3>LOGO</h3>
+            </a>
+            <ul class="navbar-nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Peta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Permintaanku</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End of footer -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
