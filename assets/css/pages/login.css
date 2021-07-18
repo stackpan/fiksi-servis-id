@@ -18,10 +18,3 @@ html, body {
     border-top: 6px solid var(--color-primary);
     background-color: var(--color-white);
 }
-
-.login-form-group .form-control {
-    border-width: 0px;
-    border-bottom: 2px solid var(--color-black);
-    border-radius: 0px;
-    background-color: transparent;
-}

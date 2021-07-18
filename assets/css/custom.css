@@ -264,3 +264,10 @@ section {
 .badge-waiting {
     color: var(--color-black);
 }
+
+.form-control {
+    border-width: 0px;
+    border-bottom: 2px solid var(--color-black);
+    border-radius: 0px;
+    background-color: transparent;
+}
