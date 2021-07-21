@@ -30,3 +30,16 @@
     background-color: var(--color-muted);
     margin: 0px auto;
 }
+
+.header-profile h6 {
+    font-weight: bold;
+}
+
+.content-profile .col-8 h6 {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.content-profile .row {
+    margin-bottom: 0.5rem;
+}
