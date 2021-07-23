@@ -18,12 +18,17 @@
 </head>
 
 <body>
+    <div id="map" class="map"></div>
+
     <div id="menu" class="menu">
         <div id="nav-menu-bar" class="nav-menu-bar">
             <i class='bx bx-menu bx-sm icons-menu bx-md'></i>
         </div>
         <span class="br"></span>
         <div id="nav-menu-search" class="nav-menu-search"></div>
+        <div class="nav-btn-right">
+            <button class="nav-btn-crt">TAMBAHKAN TEMPAT</button>
+        </div>
     </div>
 
     <div id="sidebar" class="sidebar">
@@ -31,13 +36,31 @@
             <div id="nav-side-bar" class="nav-side-bar">
                 <i class='bx bx-x bx-sm icons-menu bx-md'></i>
             </div>
-            <h1>Company Name</h1>
+            <h1>Servis ID</h1>
         </div>
         <div id="listings" class="listings"></div>
     </div>
 
-    <div id="map" class="map"></div>
-
+    <div id="mapbox-attribution" class="mapbox-attribution">
+        <ul>
+            <li>
+                <a>© Servis ID</a> &nbsp;
+            </li>
+            <li>
+                <a href='https://www.mapbox.com/about/maps/'>© Roadtrippers</a> &nbsp;
+            </li>
+            <li>
+                <a href='https://www.mapbox.com/about/maps/'>© Mapbox</a> &nbsp;
+            </li>
+            <li>
+                <a href='http://www.openstreetmap.org/copyright'>© OpenStreetMap</a> &nbsp;
+            </li>
+            <li>
+                <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>
+            </li>
+        </ul>
+    </div>
+    
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>

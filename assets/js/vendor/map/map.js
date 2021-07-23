@@ -41,8 +41,9 @@ db_collection_stores_doc_store.get().then((doc) => {
              */
             var geocoder = new MapboxGeocoder({
                 accessToken: mapboxgl.accessToken,
+                localGeocoder: coordinatesGeocoder,
                 mapboxgl: mapboxgl,
-                placeholder: 'Search your location...',
+                placeholder: 'Search your location or coordinates',
                 marker: true,
                 collapsed: false
             });
@@ -55,6 +56,7 @@ db_collection_stores_doc_store.get().then((doc) => {
              */
             buildLocationList(data);
             document.getElementById('nav-menu-search').appendChild(geocoder.onAdd(map));
+            map.addControl(new mapboxgl.FullscreenControl(), "bottom-right");
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), "bottom-right");
             addMarkers();
@@ -193,7 +195,7 @@ db_collection_stores_doc_store.get().then((doc) => {
                  * defined above and add it to the map.
                  **/
                 new mapboxgl.Marker(el, {
-                        offset: [0, -30]
+                        offset: [0, -30],
                     })
                     .setLngLat(marker.geometry.coordinates)
                     .addTo(map);
@@ -335,8 +337,38 @@ db_collection_stores_doc_store.get().then((doc) => {
                 )
                 .addTo(map);
         }
+
+        var coordinatesGeocoder = function (query) {
+            var matches = query.match( /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i );
+            if (!matches) { return null }
+            function coordinateFeature(lng, lat) {
+                return {
+                    center: [lng, lat],
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [lng, lat]
+                    },
+                    place_name: 'Lat: ' + lat + ' Lng: ' + lng,
+                    place_type: ['coordinate'],
+                    properties: {},
+                    type: 'Feature'}}
+            var coord1 = Number(matches[1]);
+            var coord2 = Number(matches[2]);
+            var geocodes = [];
+            if (coord1 < -90 || coord1 > 90) {
+                geocodes.push(coordinateFeature(coord1, coord2))}
+            if (coord2 < -90 || coord2 > 90) {
+                geocodes.push(coordinateFeature(coord2, coord1))}
+            if (geocodes.length === 0) {
+                geocodes.push(coordinateFeature(coord1, coord2));
+                geocodes.push(coordinateFeature(coord2, coord1))}
+            return geocodes
+        };
+
+        map.on('mousemove', function (e) {
+            var lnglat = JSON.stringify(e.lngLat.wrap());
+        });
     } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
     }
 }).catch((error) => {

@@ -3,4 +3,7 @@
     $(".icons-menu").on("click", function () {
         if ($("#sidebar").hasClass("show")) {$("#sidebar").removeClass("show")}
         else {$("#sidebar").addClass("show")}})
+    $("#add-btn-close").on("click", function () {
+        // 
+    })
 }(jQuery);
