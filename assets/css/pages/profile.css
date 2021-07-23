@@ -1,0 +1,45 @@
+.navbar .bxs-user-circle {
+    color: var(--color-black);
+    font-size: 2.5rem;
+}
+
+.content {
+    margin-top: 6rem;
+}
+
+.content .separator {
+    height: 6px;
+    width: auto;
+    background-color: var(--color-primary);
+    margin: 0px auto;
+}
+
+.content .d-flex {
+    justify-content: center;
+}
+
+.content .user-photo-profile {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50% !important;
+}
+
+.header-profile .separator-header {
+    height: 1px;
+    width: auto;
+    background-color: var(--color-muted);
+    margin: 0px auto;
+}
+
+.header-profile h6 {
+    font-weight: bold;
+}
+
+.content-profile .col-8 h6 {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.content-profile .row {
+    margin-bottom: 0.5rem;
+}

@@ -173,9 +173,9 @@ a:hover {
 .marker {
     border: none;
     cursor: pointer;
-    height: 95px;
+    height: 60px;
     width: 38px;
-    background-image: url(../../../images/leaf-red.png);
+    background-image: url(../../../images/marker.svg);
     background-color: rgba(0, 0, 0, 0);
 }
 

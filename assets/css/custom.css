@@ -218,7 +218,7 @@ section {
     height: 250px;
 }
 
-.button {
+.btn {
     border-radius: 0px;
     box-shadow: none !important;
     font-weight: bold;
@@ -237,19 +237,13 @@ section {
     color: var(--color-white);
 }
 
-<<<<<<< HEAD
 .divider {
     height: 2rem;
 }
 
-=======
 .separator {
     height: 3rem;
 }
-<<<<<<< HEAD
->>>>>>> d9170ded46054d121158e1979b112124345f71ef
-=======
-
 
 /* Custom badge status */
 
@@ -270,4 +264,10 @@ section {
 .badge-waiting {
     color: var(--color-black);
 }
->>>>>>> 4e91654adf566cd6c6f52ae055a37f36d38d352f
+
+.form-control {
+    border-width: 0px;
+    border-bottom: 2px solid var(--color-black);
+    border-radius: 0px;
+    background-color: transparent;
+}

@@ -1,0 +1,39 @@
+.card {
+    border-radius: 0px !important;
+    margin: auto 10rem;
+    border-width: 0px !important;
+}
+
+.req-list .card-header {
+    background-color: transparent;
+    border-radius: 0px;
+    border-bottom: 6px solid var(--color-primary);
+    padding: 0px;
+}
+
+.req-item {
+    height: max-content;
+    padding: 8px 0px !important;
+}
+
+.req-item .req-image {
+    width: 6.4rem;
+    height: 6.4rem;
+}
+
+.req-item h5 {
+    margin-bottom: 0px;
+}
+
+.req-item .description {
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.req-item .badge-status {
+    float: right
+}

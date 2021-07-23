@@ -195,7 +195,7 @@ db_collection_stores_doc_store.get().then((doc) => {
                  * defined above and add it to the map.
                  **/
                 new mapboxgl.Marker(el, {
-                        offset: [0, -45]
+                        offset: [0, -30]
                     })
                     .setLngLat(marker.geometry.coordinates)
                     .addTo(map);
@@ -261,21 +261,14 @@ db_collection_stores_doc_store.get().then((doc) => {
                 var
                 details = listing.appendChild(document.createElement('div')),
                 alamat = (prop.alamatalt=='')? '' : prop.alamatalt + ', ',
-                no = (prop.no=='')? '' : prop.no + ', ',
+                no = (prop.no=='')? '' : 'No. ' + prop.no + ', ',
                 kel = (prop.kel=='')? '' : prop.kel + ', ',
-                kec = (prop.kec=='')? '' : prop.kec + ', ',
-                kab = (prop.kab=='')? '' : prop.kab + ', ',
+                kec = (prop.kec=='')? '' : 'Kec. ' + prop.kec + ', ',
+                kab = (prop.kab=='')? '' : 'Kab. ' + prop.kab + ', ',
                 prov = (prop.prov=='')? '' : prop.prov + ', ',
                 neg = (prop.neg=='')? '' : prop.neg,
-                postal = (prop.postal=='')? '' : prop.postal;
-                details.innerHTML = alamat +
-                    'No. ' + no +
-                    kel +
-                    'Kec. ' + kec +
-                    'Kab. ' + kab +
-                    prov + '' +
-                    neg +
-                    ' (' + postal + ')';
+                postal = (prop.postal=='')? '' : ' (' + prop.postal + ')';
+                details.innerHTML = alamat + no + kel + kec + kab + prov + neg + postal;
                 if (prop.distance) {
                     var roundedDistance = Math.round((prop.distance * 1.609347) * 100) / 100;
                     if (roundedDistance > 1) {
