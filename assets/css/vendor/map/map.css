@@ -174,7 +174,7 @@ a:hover {
     border: none;
     cursor: pointer;
     height: 60px;
-    width: 38px;
+    width: 60px;
     background-image: url(../../../images/marker.svg);
     background-color: rgba(0, 0, 0, 0);
 }
