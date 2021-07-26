@@ -15,15 +15,23 @@
     <script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
     <link rel="stylesheet" href="../../assets/css/vendor/boxicons/css/boxicons.min.css">
     <link rel="stylesheet" href="../../assets/css/vendor/map/map.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 
 <body>
+    <div id="map" class="map"></div>
+
     <div id="menu" class="menu">
         <div id="nav-menu-bar" class="nav-menu-bar">
             <i class='bx bx-menu bx-sm icons-menu bx-md'></i>
         </div>
         <span class="br"></span>
         <div id="nav-menu-search" class="nav-menu-search"></div>
+        <div class="nav-btn-right">
+            <a href="#form-tambah-tempat" rel="modal:open">
+                <button class="nav-btn-crt">TAMBAH TEMPAT</button>
+            </a>
+        </div>
     </div>
 
     <div id="sidebar" class="sidebar">
@@ -31,12 +39,96 @@
             <div id="nav-side-bar" class="nav-side-bar">
                 <i class='bx bx-x bx-sm icons-menu bx-md'></i>
             </div>
-            <h1>Company Name</h1>
+            <h1>Servis ID</h1>
         </div>
-        <div id="listings" class="listings"></div>
+        <div id="listings" class="listings">
+        </div>
     </div>
 
-    <div id="map" class="map"></div>
+    <div id="mapbox-attribution" class="mapbox-attribution">
+        <ul>
+            <li>
+                <a>© Servis ID</a> &nbsp;
+            </li>
+            <li>
+                <a href='https://www.mapbox.com/about/maps/'>© Roadtrippers</a> &nbsp;
+            </li>
+            <li>
+                <a href='https://www.mapbox.com/about/maps/'>© Mapbox</a> &nbsp;
+            </li>
+            <li>
+                <a href='http://www.openstreetmap.org/copyright'>© OpenStreetMap</a> &nbsp;
+            </li>
+            <li>
+                <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>
+            </li>
+        </ul>
+    </div>
+
+    <div id="form-tambah-tempat" class="modal">
+        <form id="form-tt">
+            <label for="tn">Nama Toko</label><br>
+            <input class="set-field-100" type="text" id="tn" name="tn"><br><br>
+            <div class="row">
+                <div class="column-2">
+                    <label for="lat">Latitude</label><br>
+                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                </div>
+                <div class="column-2">
+                    <label for="lng">Longitude</label><br>
+                    <input class="set-field-100" type="text" id="lng" name="lng">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="column-2">
+                    <label for="lat">Alamat</label><br>
+                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                </div>
+                <div class="column-2">
+                    <label for="lng">Nomor/Blok</label><br>
+                    <input class="set-field-100" type="text" id="lng" name="lng">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="column-2">
+                    <label for="lat">Desa/Kelurahan</label><br>
+                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                </div>
+                <div class="column-2">
+                    <label for="lng">Kecamatan</label><br>
+                    <input class="set-field-100" type="text" id="lng" name="lng">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="column-2">
+                    <label for="lat">Kabupaten/Kota</label><br>
+                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                </div>
+                <div class="column-2">
+                    <label for="lng">Provinsi</label><br>
+                    <input class="set-field-100" type="text" id="lng" name="lng">
+                </div>
+            </div><br>
+        </form> 
+    </div>
+
+    <div id="contextMenu" class="dropdown clearfix">
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
+            <li>
+                <a tabindex="-1" href="#">Action 1</a>
+            </li>
+            <li>
+                <a tabindex="-1" href="#">Action 2</a>
+            </li>
+            <li>
+                <a tabindex="-1" href="#">Some More Actions</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a tabindex="-1" href="#">Final Action</a>
+            </li>
+        </ul>
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
@@ -47,6 +139,7 @@
     <script src="../../assets/js/vendor/map/custom.js"></script>
     <script src="../../assets/js/vendor/map/map.js"></script>
     <script src="../../assets/js/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="../../assets/js/script.js"></script>
 </body>
 
