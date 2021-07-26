@@ -60,8 +60,6 @@ db_collection_stores_doc_store.get().then((doc) => {
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
             map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), "bottom-right");
             addMarkers();
-            var usrLoc = geocoder.getCurrentLocation();
-            console.log(usrLoc);
 
             /**
              * Listen for when a geocoder result is returned. When one is returned:
@@ -73,9 +71,10 @@ db_collection_stores_doc_store.get().then((doc) => {
              * - Highlight the listing for the closest store.
              */
             geocoder.on('result', function (ev) {
-
+                
                 /* Get the coordinate of the search result */
                 var searchResult = ev.result.geometry;
+                console.log(searchResult);
 
                 /**
                  * Calculate distances:
