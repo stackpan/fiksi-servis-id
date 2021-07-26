@@ -5,12 +5,12 @@
  */
 
 var db_collection_stores = db.collection("stores"),
-db_collection_stores_doc_store = db_collection_stores.doc("store");
+    db_collection_stores_doc_store = db_collection_stores.doc("store");
 
 db_collection_stores_doc_store.get().then((doc) => {
     if (doc.exists) {
         // console.log("Document data:", doc.data());
-        
+
         data = doc.data()
         console.log(data);
         /**
@@ -58,7 +58,7 @@ db_collection_stores_doc_store.get().then((doc) => {
             document.getElementById('nav-menu-search').appendChild(geocoder.onAdd(map));
             map.addControl(new mapboxgl.FullscreenControl(), "bottom-right");
             map.addControl(new mapboxgl.NavigationControl, "bottom-right");
-            map.addControl(new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true},trackUserLocation: true}), "bottom-right");
+            map.addControl(new mapboxgl.GeolocateControl({ positionOptions: { enableHighAccuracy: true }, trackUserLocation: true }), "bottom-right");
             addMarkers();
 
             /**
@@ -71,7 +71,7 @@ db_collection_stores_doc_store.get().then((doc) => {
              * - Highlight the listing for the closest store.
              */
             geocoder.on('result', function (ev) {
-                
+
                 /* Get the coordinate of the search result */
                 var searchResult = ev.result.geometry;
                 console.log(searchResult);
@@ -196,8 +196,8 @@ db_collection_stores_doc_store.get().then((doc) => {
                  * defined above and add it to the map.
                  **/
                 new mapboxgl.Marker(el, {
-                        offset: [0, -30],
-                    })
+                    offset: [0, -30],
+                })
                     .setLngLat(marker.geometry.coordinates)
                     .addTo(map);
 
@@ -249,27 +249,25 @@ db_collection_stores_doc_store.get().then((doc) => {
                 link.id = 'link-' + prop.id;
                 link.innerHTML = prop.name;
 
-                if (prop.alamatalt == undefined) {prop.alamatalt = ''}
-                if (prop.no == undefined) {prop.no = ''}
-                if (prop.kel == undefined) {prop.kel = ''}
-                if (prop.kec == undefined) {prop.kec = ''}
-                if (prop.kab == undefined) {prop.kab = ''}
-                if (prop.prov == undefined) {prop.prov = ''}
-                if (prop.neg == undefined) {prop.neg = ''}
-                if (prop.postal == undefined) {prop.postal = ''}
+                if (prop.alamatalt == undefined) { prop.alamatalt = '' }
+                if (prop.no == undefined) { prop.no = '' }
+                if (prop.kel == undefined) { prop.kel = '' }
+                if (prop.kec == undefined) { prop.kec = '' }
+                if (prop.kab == undefined) { prop.kab = '' }
+                if (prop.prov == undefined) { prop.prov = '' }
+                if (prop.postal == undefined) { prop.postal = '' }
 
                 /* Add details to the individual listing. */
                 var
-                details = listing.appendChild(document.createElement('div')),
-                alamat = (prop.alamatalt=='')? '' : prop.alamatalt + ', ',
-                no = (prop.no=='')? '' : 'No. ' + prop.no + ', ',
-                kel = (prop.kel=='')? '' : prop.kel + ', ',
-                kec = (prop.kec=='')? '' : 'Kec. ' + prop.kec + ', ',
-                kab = (prop.kab=='')? '' : 'Kab. ' + prop.kab + ', ',
-                prov = (prop.prov=='')? '' : prop.prov + ', ',
-                neg = (prop.neg=='')? '' : prop.neg,
-                postal = (prop.postal=='')? '' : ' (' + prop.postal + ')';
-                details.innerHTML = alamat + no + kel + kec + kab + prov + neg + postal;
+                    details = listing.appendChild(document.createElement('div')),
+                    alamat = (prop.alamatalt == '') ? '' : prop.alamatalt + ', ',
+                    no = (prop.no == '') ? '' : 'No. ' + prop.no + ', ',
+                    kel = (prop.kel == '') ? '' : prop.kel + ', ',
+                    kec = (prop.kec == '') ? '' : 'Kec. ' + prop.kec + ', ',
+                    kab = (prop.kab == '') ? '' : prop.kab + ', ',
+                    prov = (prop.prov == '') ? '' : prop.prov + ', ',
+                    postal = (prop.postal == '') ? '' : ' (' + prop.postal + ')';
+                details.innerHTML = alamat + no + kel + kec + kab + prov + postal;
                 if (prop.distance) {
                     var roundedDistance = Math.round((prop.distance * 1.609347) * 100) / 100;
                     if (roundedDistance > 1) {
@@ -324,9 +322,9 @@ db_collection_stores_doc_store.get().then((doc) => {
             if (popUps[0]) popUps[0].remove();
 
             var popup = new mapboxgl.Popup({
-                    closeOnClick: true,
-                    closeButton: false
-                })
+                closeOnClick: true,
+                closeButton: false
+            })
                 .setLngLat(currentFeature.geometry.coordinates)
                 .setHTML(
                     '<h3>' +
@@ -340,7 +338,7 @@ db_collection_stores_doc_store.get().then((doc) => {
         }
 
         var coordinatesGeocoder = function (query) {
-            var matches = query.match( /^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i );
+            var matches = query.match(/^[ ]*(?:Lat: )?(-?\d+\.?\d*)[, ]+(?:Lng: )?(-?\d+\.?\d*)[ ]*$/i);
             if (!matches) { return null }
             function coordinateFeature(lng, lat) {
                 return {
@@ -352,23 +350,29 @@ db_collection_stores_doc_store.get().then((doc) => {
                     place_name: 'Lat: ' + lat + ' Lng: ' + lng,
                     place_type: ['coordinate'],
                     properties: {},
-                    type: 'Feature'}}
+                    type: 'Feature'
+                }
+            }
             var coord1 = Number(matches[1]);
             var coord2 = Number(matches[2]);
             var geocodes = [];
             if (coord1 < -90 || coord1 > 90) {
-                geocodes.push(coordinateFeature(coord1, coord2))}
+                geocodes.push(coordinateFeature(coord1, coord2))
+            }
             if (coord2 < -90 || coord2 > 90) {
-                geocodes.push(coordinateFeature(coord2, coord1))}
+                geocodes.push(coordinateFeature(coord2, coord1))
+            }
             if (geocodes.length === 0) {
                 geocodes.push(coordinateFeature(coord1, coord2));
-                geocodes.push(coordinateFeature(coord2, coord1))}
+                geocodes.push(coordinateFeature(coord2, coord1))
+            }
             return geocodes
         };
 
         map.on('mousemove', function (e) {
             var lnglat = JSON.stringify(e.lngLat.wrap());
         });
+
     } else {
         console.log("No such document!");
     }

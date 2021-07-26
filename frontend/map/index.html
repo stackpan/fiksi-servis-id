@@ -67,67 +67,62 @@
 
     <div id="form-tambah-tempat" class="modal">
         <form id="form-tt">
-            <label for="tn">Nama Toko</label><br>
-            <input class="set-field-100" type="text" id="tn" name="tn"><br><br>
+            <label for="toko">Nama Toko</label><br>
+            <input class="set-field-100" type="text" id="toko" name="toko"><br><br>
             <div class="row">
                 <div class="column-2">
                     <label for="lat">Latitude</label><br>
-                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                    <input class="set-field-90" type="text" id="lat" name="lat" placeholder="-90 to 90"><br>
                 </div>
                 <div class="column-2">
                     <label for="lng">Longitude</label><br>
-                    <input class="set-field-100" type="text" id="lng" name="lng">
+                    <input class="set-field-100" type="text" id="lng" name="lng" placeholder="-180 to 180">
                 </div>
             </div><br>
             <div class="row">
                 <div class="column-2">
-                    <label for="lat">Alamat</label><br>
-                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                    <label for="alamat">Alamat</label><br>
+                    <input class="set-field-90" type="text" id="alamat" name="alamat" placeholder="Jl. Contoh Madi II"><br>
                 </div>
                 <div class="column-2">
-                    <label for="lng">Nomor/Blok</label><br>
-                    <input class="set-field-100" type="text" id="lng" name="lng">
+                    <label for="alamatalt">Alamat Lengkap</label><br>
+                    <input class="set-field-100" type="text" id="alamatalt" name="alamatalt" placeholder="Ruko ServisID, Jl. Contoh Madi II, Blok A, No. 10, 13, 14">
                 </div>
             </div><br>
             <div class="row">
                 <div class="column-2">
-                    <label for="lat">Desa/Kelurahan</label><br>
-                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                    <label for="nobl">Nomor/Blok</label><br>
+                    <input class="set-field-90" type="text" id="nobl" name="nobl"><br>
                 </div>
                 <div class="column-2">
-                    <label for="lng">Kecamatan</label><br>
-                    <input class="set-field-100" type="text" id="lng" name="lng">
+                    <label for="deskel">Desa/Kelurahan</label><br>
+                    <input class="set-field-100" type="text" id="deskel" name="deskel">
                 </div>
             </div><br>
             <div class="row">
                 <div class="column-2">
-                    <label for="lat">Kabupaten/Kota</label><br>
-                    <input class="set-field-90" type="text" id="lat" name="lat"><br>
+                    <label for="kec">Kecamatan</label><br>
+                    <input class="set-field-90" type="text" id="kec" name="kec"><br>
                 </div>
                 <div class="column-2">
-                    <label for="lng">Provinsi</label><br>
-                    <input class="set-field-100" type="text" id="lng" name="lng">
+                    <label for="kabkot">Kabupaten/Kota</label><br>
+                    <input class="set-field-100" type="text" id="kabkot" name="kabkot">
                 </div>
             </div><br>
+            <div class="row">
+                <div class="column-2">
+                    <label for="prov">Provinsi</label><br>
+                    <input class="set-field-90" type="text" id="prov" name="prov"><br>
+                </div>
+                <div class="column-2">
+                    <label for="pstl">Postal</label><br>
+                    <input class="set-field-100" type="text" id="pstl" name="pstl">
+                </div>
+            </div><br>
+            <label for="jaser">Jasa Service</label><br>
+            <input class="set-field-100" type="text" id="jaser" name="jaser" placeholder="Leptop [ Acer Dell Asus Lenovo ], Komputer, AC, Lampu"><br><br>
+            <button id="btn-form-submit">Tambah Tempat</button>
         </form> 
-    </div>
-
-    <div id="contextMenu" class="dropdown clearfix">
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display:block;position:static;margin-bottom:5px;">
-            <li>
-                <a tabindex="-1" href="#">Action 1</a>
-            </li>
-            <li>
-                <a tabindex="-1" href="#">Action 2</a>
-            </li>
-            <li>
-                <a tabindex="-1" href="#">Some More Actions</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-                <a tabindex="-1" href="#">Final Action</a>
-            </li>
-        </ul>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
