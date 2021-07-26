@@ -1,0 +1,19 @@
+.footer-s {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-s .container {
+    border-top: 1px solid var(--color-muted);
+    height: 100%;
+    align-items: center;
+}
+
+.footer-s .container {
+    justify-content: space-between;
+}
+
+.footer-s .container h6 {
+    font-size: 11px;
+}
