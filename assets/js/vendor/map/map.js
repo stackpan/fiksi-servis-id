@@ -11,7 +11,7 @@ db_collection_stores_doc_store.get().then((doc) => {
     if (doc.exists) {
         // console.log("Document data:", doc.data());
 
-        data = doc.data()
+        let data = doc.data()
         console.log(data);
         /**
          * Assign a unique id to each store. You'll use this `id`
@@ -249,7 +249,7 @@ db_collection_stores_doc_store.get().then((doc) => {
                 link.id = 'link-' + prop.id;
                 link.innerHTML = prop.name;
 
-                if (prop.alamatalt == undefined) { prop.alamatalt = '' }
+                if (prop.alamat == undefined) { prop.alamat = '' }
                 if (prop.no == undefined) { prop.no = '' }
                 if (prop.kel == undefined) { prop.kel = '' }
                 if (prop.kec == undefined) { prop.kec = '' }
@@ -260,7 +260,7 @@ db_collection_stores_doc_store.get().then((doc) => {
                 /* Add details to the individual listing. */
                 var
                     details = listing.appendChild(document.createElement('div')),
-                    alamat = (prop.alamatalt == '') ? '' : prop.alamatalt + ', ',
+                    alamat = (prop.alamat == '') ? '' : prop.alamat + ', ',
                     no = (prop.no == '') ? '' : 'No. ' + prop.no + ', ',
                     kel = (prop.kel == '') ? '' : prop.kel + ', ',
                     kec = (prop.kec == '') ? '' : 'Kec. ' + prop.kec + ', ',
@@ -318,8 +318,24 @@ db_collection_stores_doc_store.get().then((doc) => {
          * Create a Mapbox GL JS `Popup`.
          **/
         function createPopUp(currentFeature) {
-            var popUps = document.getElementsByClassName('mapboxgl-popup');
+            var popUps = document.getElementsByClassName('mapboxgl-popup'),
+                prop = currentFeature.properties, label = prop.tag, serve = label.sort().join(' '),
+                openHour = (prop.other.open !== '' || undefined || null) ? 'Jam Kerja : ' + prop.other.open + '<br/><br/>' : '';
+                storeDesc = (prop.other.desc !== '' || undefined || null) ? prop.other.desc + '<br/><br/>' : '';
             if (popUps[0]) popUps[0].remove();
+
+            function uppercase(str) {
+                var arr_str = str.split(' ');
+                var arr_new = [];
+                for(var y = 0; y < arr_str.length; y++){
+                    key = arr_str[y];
+                    arr_new.push(
+                        "<div id='tag"+ (y) +"' class='tag-serve'>" +
+                        arr_str[y].charAt(0).toUpperCase()+arr_str[y].slice(1) +
+                        "</div>"
+                    );
+                } return arr_new.join(' ');
+            }
 
             var popup = new mapboxgl.Popup({
                 closeOnClick: true,
@@ -328,10 +344,14 @@ db_collection_stores_doc_store.get().then((doc) => {
                 .setLngLat(currentFeature.geometry.coordinates)
                 .setHTML(
                     '<h3>' +
-                    currentFeature.properties.name +
+                        prop.name +
                     '</h3>' +
                     '<h4>' +
-                    currentFeature.properties.alamatalt +
+                        storeDesc +
+                        openHour +
+                        'Melayanin Servis:' +
+                        '<br/>' +
+                        uppercase(serve) + 
                     '</h4>'
                 )
                 .addTo(map);
@@ -370,7 +390,69 @@ db_collection_stores_doc_store.get().then((doc) => {
         };
 
         map.on('mousemove', function (e) {
-            var lnglat = JSON.stringify(e.lngLat.wrap());
+            document.getElementById("getLatLng").innerHTML =
+            '<div class="truncate">' + e.lngLat.lng + '</div>'
+            + ", " +
+            '<div class="truncate">' + e.lngLat.lat + '</div>';
+
+            const contextMenu = document.getElementById("context-menu");
+            const scope = document.getElementById("map");
+            scope.addEventListener("contextmenu", (event) => {
+              event.preventDefault();
+              const { clientX: mouseX, clientY: mouseY } = event;
+              contextMenu.style.top = `${mouseY}px`;
+              contextMenu.style.left = `${mouseX}px`;
+              contextMenu.classList.add("visible");
+            });
+            scope.addEventListener("click", (e) => {
+                if (e.target.offsetParent != contextMenu) {
+                  contextMenu.classList.remove("visible");
+                }
+            });
+            scope.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+                const { clientX: mouseX, clientY: mouseY } = event;
+                contextMenu.style.top = `${mouseY}px`;
+                contextMenu.style.left = `${mouseX}px`;
+                contextMenu.classList.remove("visible");
+                setTimeout(() => {
+                contextMenu.classList.add("visible");
+                });
+            });
+            const normalizePozition = (mouseX, mouseY) => {
+                const {
+                  left: scopeOffsetX,
+                  top: scopeOffsetY,
+                } = scope.getBoundingClientRect();
+                const scopeX = mouseX - scopeOffsetX;
+                const scopeY = mouseY - scopeOffsetY;
+                const outOfBoundsOnX =
+                  scopeX + contextMenu.clientWidth > scope.clientWidth;
+                const outOfBoundsOnY =
+                  scopeY + contextMenu.clientHeight > scope.clientHeight;
+                let normalizedX = mouseX;
+                let normalizedY = mouseY;
+                if (outOfBoundsOnX) {
+                  normalizedX =
+                    scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
+                }
+                if (outOfBoundsOnY) {
+                  normalizedY =
+                    scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
+                }
+                return { normalizedX, normalizedY };
+              };
+              scope.addEventListener("contextmenu", (event) => {
+                event.preventDefault();
+                const { offsetX: mouseX, offsetY: mouseY } = event;
+                const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+                contextMenu.style.top = `${normalizedY}px`;
+                contextMenu.style.left = `${normalizedX}px`;
+                contextMenu.classList.remove("visible");
+                setTimeout(() => {
+                  contextMenu.classList.add("visible");
+                });
+              });
         });
 
     } else {

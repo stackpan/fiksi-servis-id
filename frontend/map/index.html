@@ -71,6 +71,8 @@
         <form id="form-tt">
             <label for="toko">Nama Toko</label><br>
             <input class="set-field-100" type="text" id="toko" name="toko"><br><br>
+            <label for="desc">Deskripsi</label><br>
+            <input class="set-field-100" type="text" id="desc" name="desc"><br><br>
             <div class="row">
                 <div class="column-2">
                     <label for="lat">Latitude</label><br>
@@ -87,8 +89,8 @@
                     <input class="set-field-90" type="text" id="alamat" name="alamat" placeholder="Jl. Contoh Madi II"><br>
                 </div>
                 <div class="column-2">
-                    <label for="alamatalt">Alamat Lengkap</label><br>
-                    <input class="set-field-100" type="text" id="alamatalt" name="alamatalt" placeholder="Ruko ServisID, Jl. Contoh Madi II, Blok A, No. 10, 13, 14">
+                    <label for="waktu">Jam Kerja</label><br>
+                    <input class="set-field-100" type="text" id="waktu" name="waktu">
                 </div>
             </div><br>
             <div class="row">
@@ -118,14 +120,18 @@
                 </div>
                 <div class="column-2">
                     <label for="pstl">Postal</label><br>
-                    <input class="set-field-100" type="text" id="pstl" name="pstl">
+                    <input class="set-field-100" type="text" id="pstl" name="pstl" placeholder="(optional)">
                 </div>
             </div><br>
             <label for="jaser">Jasa Service</label><br>
-            <input class="set-field-100" type="text" id="jaser" name="jaser" placeholder="Leptop [ Acer Dell Asus Lenovo ], Komputer, AC, Lampu"><br><br>
-            <button id="btn-form-submit">Tambah Tempat</button>
+            <input class="set-field-100" type="text" id="jaser" name="jaser" placeholder="Leptop Komputer AC Lampu"><br><br>
+            <button id="btn-form-submit" class="btn-form-submit">Tambah Tempat</button>
         </form>
     </div>
+
+    <div id="context-menu">
+        <div id="getLatLng" class="item">Option 1</div>
+      </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
