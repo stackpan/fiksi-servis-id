@@ -31,6 +31,11 @@ body {
     margin-left: 10px;
 }
 
+.nav-side-home {
+    padding: 5px;
+    right: 0;
+}
+
 .nav-side-bar {
     position: fixed;
 }
@@ -407,10 +412,17 @@ a:hover {
         top: 5px !important;
         left: 12px;
     }
+}
 
+@media (max-width: 800px) {
     .mapbox-attribution {
         display: none !important;
     }
+}
+
+.mapboxgl-ctrl-bottom-left,
+.mapboxgl-ctrl-bottom-right {
+    z-index: 0;
 }
 
 .tag-serve {

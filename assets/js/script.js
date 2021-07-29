@@ -81,6 +81,29 @@
                         type: 'Feature',
                         geometry: {
                             type: 'Point',
+                            coordinates: [109.38194718334573, -6.917948707101545]
+                        },
+                        properties: {
+                            name: 'Tripio Computer Pemalang',
+                            alamat: 'Jl. Jend. A. Yani',
+                            no: '28',
+                            kel: "Kebondalem",
+                            kec: 'Pemalang',
+                            kab: 'Pemalang',
+                            prov: 'Jawa Tengah',
+                            postal: '52312',
+                            other: {
+                                open: '',
+                                desc: ''
+                            },
+                            tag: ['komputer', 'laptop', 'LAN', 'printer', ]
+                            
+                        }
+                    },
+                    {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
                             coordinates: [109.39278896624471, -6.890296868087672]
                         },
                         properties: {
