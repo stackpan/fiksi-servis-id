@@ -321,17 +321,17 @@ db_collection_stores_doc_store.get().then((doc) => {
             var popUps = document.getElementsByClassName('mapboxgl-popup'),
                 prop = currentFeature.properties, label = prop.tag, serve = label.sort().join(' '),
                 openHour = (prop.other.open !== '' || undefined || null) ? 'Jam Kerja : ' + prop.other.open + '<br/><br/>' : '';
-                storeDesc = (prop.other.desc !== '' || undefined || null) ? prop.other.desc + '<br/><br/>' : '';
+            storeDesc = (prop.other.desc !== '' || undefined || null) ? prop.other.desc + '<br/><br/>' : '';
             if (popUps[0]) popUps[0].remove();
 
             function uppercase(str) {
                 var arr_str = str.split(' ');
                 var arr_new = [];
-                for(var y = 0; y < arr_str.length; y++){
+                for (var y = 0; y < arr_str.length; y++) {
                     key = arr_str[y];
                     arr_new.push(
-                        "<div id='tag"+ (y) +"' class='tag-serve'>" +
-                        arr_str[y].charAt(0).toUpperCase()+arr_str[y].slice(1) +
+                        "<div id='tag" + (y) + "' class='tag-serve'>" +
+                        arr_str[y].charAt(0).toUpperCase() + arr_str[y].slice(1) +
                         "</div>"
                     );
                 } return arr_new.join(' ');
@@ -344,14 +344,14 @@ db_collection_stores_doc_store.get().then((doc) => {
                 .setLngLat(currentFeature.geometry.coordinates)
                 .setHTML(
                     '<h3>' +
-                        prop.name +
+                    prop.name +
                     '</h3>' +
                     '<h4>' +
-                        storeDesc +
-                        openHour +
-                        'Melayanin Servis:' +
-                        '<br/>' +
-                        uppercase(serve) + 
+                    storeDesc +
+                    openHour +
+                    'Melayanin Servis:' +
+                    '<br/>' +
+                    uppercase(serve) +
                     '</h4>'
                 )
                 .addTo(map);
@@ -389,75 +389,84 @@ db_collection_stores_doc_store.get().then((doc) => {
             return geocodes
         };
 
-        map.on('mousemove', function (e) {
-            document.getElementById("getLatLng").innerHTML =
-            '<div class="truncate">' + e.lngLat.lng + '</div>'
-            + ", " +
-            '<div class="truncate">' + e.lngLat.lat + '</div>';
+        var loc = new mapboxgl.Marker({
+            draggable: false,
+            color: "#7148FF"
+        })
 
-            const contextMenu = document.getElementById("context-menu");
-            const scope = document.getElementById("map");
-            scope.addEventListener("contextmenu", (event) => {
-              event.preventDefault();
-              const { clientX: mouseX, clientY: mouseY } = event;
-              contextMenu.style.top = `${mouseY}px`;
-              contextMenu.style.left = `${mouseX}px`;
-              contextMenu.classList.add("visible");
-            });
-            scope.addEventListener("click", (e) => {
-                if (e.target.offsetParent != contextMenu) {
-                  contextMenu.classList.remove("visible");
-                }
-            });
-            scope.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-                const { clientX: mouseX, clientY: mouseY } = event;
-                contextMenu.style.top = `${mouseY}px`;
-                contextMenu.style.left = `${mouseX}px`;
+        map.on('click', function (e) {
+            loc
+                .setLngLat([e.lngLat.lng, e_lat])
+                .addTo(map);
+
+            document.getElementById("getLatLng").innerHTML =
+                '<div class="truncate">' + e.lngLat.lng + '</div>'
+                + ", " +
+                '<div class="truncate">' + e.lngLat.lat + '</div>';
+        });
+
+        const contextMenu = document.getElementById("context-menu");
+        const scope = document.getElementById("map");
+        scope.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            const { clientX: mouseX, clientY: mouseY } = event;
+            contextMenu.style.top = `${mouseY}px`;
+            contextMenu.style.left = `${mouseX}px`;
+            contextMenu.classList.add("visible");
+        });
+        scope.addEventListener("click", (e) => {
+            if (e.target.offsetParent != contextMenu) {
                 contextMenu.classList.remove("visible");
-                setTimeout(() => {
+            }
+        });
+        scope.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            const { clientX: mouseX, clientY: mouseY } = event;
+            contextMenu.style.top = `${mouseY}px`;
+            contextMenu.style.left = `${mouseX}px`;
+            contextMenu.classList.remove("visible");
+            setTimeout(() => {
                 contextMenu.classList.add("visible");
-                });
             });
-            const normalizePozition = (mouseX, mouseY) => {
-                const {
-                  left: scopeOffsetX,
-                  top: scopeOffsetY,
-                } = scope.getBoundingClientRect();
-                const scopeX = mouseX - scopeOffsetX;
-                const scopeY = mouseY - scopeOffsetY;
-                const outOfBoundsOnX =
-                  scopeX + contextMenu.clientWidth > scope.clientWidth;
-                const outOfBoundsOnY =
-                  scopeY + contextMenu.clientHeight > scope.clientHeight;
-                let normalizedX = mouseX;
-                let normalizedY = mouseY;
-                if (outOfBoundsOnX) {
-                  normalizedX =
+        });
+        const normalizePozition = (mouseX, mouseY) => {
+            const {
+                left: scopeOffsetX,
+                top: scopeOffsetY,
+            } = scope.getBoundingClientRect();
+            const scopeX = mouseX - scopeOffsetX;
+            const scopeY = mouseY - scopeOffsetY;
+            const outOfBoundsOnX =
+                scopeX + contextMenu.clientWidth > scope.clientWidth;
+            const outOfBoundsOnY =
+                scopeY + contextMenu.clientHeight > scope.clientHeight;
+            let normalizedX = mouseX;
+            let normalizedY = mouseY;
+            if (outOfBoundsOnX) {
+                normalizedX =
                     scopeOffsetX + scope.clientWidth - contextMenu.clientWidth;
-                }
-                if (outOfBoundsOnY) {
-                  normalizedY =
+            }
+            if (outOfBoundsOnY) {
+                normalizedY =
                     scopeOffsetY + scope.clientHeight - contextMenu.clientHeight;
-                }
-                return { normalizedX, normalizedY };
-              };
-              scope.addEventListener("contextmenu", (event) => {
-                event.preventDefault();
-                const { offsetX: mouseX, offsetY: mouseY } = event;
-                const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
-                contextMenu.style.top = `${normalizedY}px`;
-                contextMenu.style.left = `${normalizedX}px`;
-                contextMenu.classList.remove("visible");
-                setTimeout(() => {
-                  contextMenu.classList.add("visible");
-                });
-              });
+            }
+            return { normalizedX, normalizedY };
+        };
+        scope.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            const { offsetX: mouseX, offsetY: mouseY } = event;
+            const { normalizedX, normalizedY } = normalizePozition(mouseX, mouseY);
+            contextMenu.style.top = `${normalizedY}px`;
+            contextMenu.style.left = `${normalizedX}px`;
+            contextMenu.classList.remove("visible");
+            setTimeout(() => {
+                contextMenu.classList.add("visible");
+            });
         });
 
     } else {
         console.log("No such document!");
     }
 }).catch((error) => {
-    console.log("Error getting document:", error);
+    console.log("Error getting document: ", error);
 });

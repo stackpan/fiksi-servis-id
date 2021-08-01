@@ -40,8 +40,9 @@ body {
     position: fixed;
 }
 
-.sidebar .heading h1 {
+.sidebar .heading a h1 {
     text-align: center;
+    color: #fff;
 }
 
 .br{
@@ -56,6 +57,24 @@ body {
     top: 6.5px;
     left: auto;
     position: absolute;
+}
+
+.nav-btn-widget {
+    border-radius: 17px;
+    background-color: transparent;
+    border: 1px solid #0011FF;
+    padding: 7px 25px 4px 25px;
+    font-weight: 700;
+    color: #0011FF;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn-widget:hover {
+    color: #fff;
+    background-color: #0000CA;
+    border: 1px solid #0000CA;
 }
 
 .nav-btn-crt {
@@ -473,7 +492,8 @@ a:hover {
 }
 
 .truncate {
-    display: inline-block;
+    max-width: 58px;
+    display: inline-flex;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

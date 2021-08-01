@@ -25,5 +25,5 @@ else { console.log(objectFilter(ao, aoq))}
  * MAP ESSENTIAL RESOURCE
  */
 mapboxgl.accessToken = __DT('Y0dzdVpYbEtNVWxxYjJsamJUbG9Xa2hTZVdGWVFuZGFXRXA2U1dsM2FWbFRTVFpKYlVvelpWWm9UR1Z0T0dsbVVTNTVVVmxEZDBVMGNFbFJZV2hqTm5OcVYwNXlja2xS',1);
-var map = new mapboxgl.Map({container: 'map', style: __DT('bWFwYm94Oi8vc3R5bGVzL3JvYWR0cmlwcGVycy9jazkxdHJoYWIxajZtMWlxdmE3ODU0dzls',2), center: [117.9,-2.5], zoom: 1, attributionControl: false});
+var map = new mapboxgl.Map({container: 'map', style: __DT('bWFwYm94Oi8vc3R5bGVzL3JvYWR0cmlwcGVycy9jazkxdHJoYWIxajZtMWlxdmE3ODU0dzls',2), center: [117.9,-2.5], zoom: 1, attributionControl: false, continuousWorld: false, noWrap: true});
 map.fitBounds([[93.86180529359521,6.779061576042918],[141.80914130393109,-9.411944401459397]]);
