@@ -71,6 +71,8 @@
 .card .card-img-top {
     width: 9rem;
     height: 9rem;
+    object-fit: cover;
+    border-radius: 0px;
 }
 
 .footer {
