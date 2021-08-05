@@ -133,4 +133,6 @@
         validateForm();
         event.preventDefault();
     });
+    var $tabValue = $(this).attr('href');
+    var $withoutHash = $tabValue.substr(0,$tabValue.indexOf('#'));
 }(jQuery);
