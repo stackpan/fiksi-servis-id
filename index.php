@@ -17,6 +17,9 @@ switch ($request) {
     case '/create-request' :
         require __DIR__ . '/frontend/create-request/select-category/index.html';
         break;
+    case '/create-request/fill-detail' :
+        require __DIR__ . '/frontend//create-request/fill-detail/index.html';
+        break;
     default:
         http_response_code(404);
         break;
