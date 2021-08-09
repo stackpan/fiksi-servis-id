@@ -389,21 +389,37 @@ db_collection_stores_doc_store.get().then((doc) => {
             return geocodes
         };
 
-        var loc = new mapboxgl.Marker({
-            draggable: false,
-            color: "#7148FF"
-        })
+        let arr_lngLat = [];
 
         map.on('click', function (e) {
-            loc
-                .setLngLat([e.lngLat.lng, e_lat])
-                .addTo(map);
+
+            var el = document.createElement('div');
+            el.id = 'main-marker';
+
+            var lng = String(e.lngLat.lng), lat = String(e.lngLat.lat);
+            function truncate(text, count){
+                return text.slice(0, count) + (text.length > count ? "..." : "");
+            }
+
+            arr_lngLat.splice(0,arr_lngLat.length);
+            arr_lngLat.push(lng, lat);
+
+            console.table(arr_lngLat);
 
             document.getElementById("getLatLng").innerHTML =
-                '<div class="truncate">' + e.lngLat.lng + '</div>'
+                '<div class="truncate">' + truncate(lng,7) + '</div>'
                 + ", " +
-                '<div class="truncate">' + e.lngLat.lat + '</div>';
+                '<div class="truncate">' + truncate(lat,6) + '</div>';
         });
+
+        function copyLngLat() {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+        }
 
         const contextMenu = document.getElementById("context-menu");
         const scope = document.getElementById("map");

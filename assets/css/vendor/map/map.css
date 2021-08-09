@@ -492,7 +492,6 @@ a:hover {
 }
 
 .truncate {
-    max-width: 58px;
     display: inline-flex;
     text-overflow: ellipsis;
     white-space: nowrap;
